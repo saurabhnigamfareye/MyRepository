@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Login</title>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+
+    <!--<script src="javascript/jquery.js"></script>-->
+    <!--<script src="javascript/bootstrapjs.js"></script>-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <!--<link rel="stylesheet" th:src="bootstrap.css" type="text/css"/>-->
+
+</head>
+<body style="overflow: hidden ;">
+
+<div   class="jumbotron ">
+
+    <h2 style="position: absolute;top: 20% ;left: 30%">Welcome to Inventory Management System!</h2>
+    <div style="position: absolute;top: 30% ; left: 35% ; ">
+
+        <form class="container" th:action="@{/login}" method="post">
+
+            <table  style="top:50%;left:30% ;padding: 10px; border-collapse: separate;  border-spacing: 10px 10px;">
+                <tr><td> <h3>Login In!</h3></td></tr>
+                <tr class="form-group"><td> <input style="width: 200%;" type="text" class="form-control" id="username" name="username" placeholder="Enter User Name"/> </td></tr>
+                <tr class="form-group"><td> <input style="width: 200%;" type="password" class="form-control" id="password" name="password" placeholder="Enter Password"/> </td></tr>
+                <tr><td> <input type="submit" class="btn  btn-success" value="Sign In" style="width: 200%; "/> </td></tr>
+                <tr th:if="${param.error}"><td>
+                    Invalid username and password.</td>
+                </tr>
+                <tr  th:if="${param.logout}"><td>
+                    You have been logged out.</td>
+                </tr>
+
+            </table>
+
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

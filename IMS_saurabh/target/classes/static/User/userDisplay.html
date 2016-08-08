@@ -1,0 +1,27 @@
+
+
+<div class="form-group">
+   <label for="user"> Enter User name :</label> <input type="text" id="user" class="form-control" name="user" ng-model="user">
+    <br>
+
+    <div  ng-repeat="y in records  | filter : user">
+
+        <b> User Name</b> : {{ y.userName }}  <br>
+        <b>  User Id </b>: {{ y.userId  }}  <br>
+        <b>  Email </b>: {{ y.email }}  <br>
+        <b>  Account active</b>: {{ y.enabled }}  <br>
+       <br>
+        <br>
+
+
+            <!--<span ng-repeat="x in y.userRole">-->
+
+               <!--{{ x.role }} &nbsp;-->
+
+
+            <!--</span>-->
+
+
+    </div>
+
+</div>

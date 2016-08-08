@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+
+<form name="logoutForm" th:action="@{/logout}" method="post" >
+    <input  type="submit" value="Sign Out"/>
+</form>
+
+<div ng-app="myApp" ng-controller="myController">
+    <h1 style="text-align: center">Welcome !</h1>
+    <nav >
+        <a ui-sref="register">Insert a product</a>
+        <a ui-sref="update">Update Products</a>
+        <a ui-sref="delete">Delete Products</a>
+        <a ui-sref="display">Display Products</a>
+        <a ui-sref="purchase">Purchase</a>
+        <a ui-sref="purchaseDisplay">Purchase Display</a>
+        <a ui-sref="production">Product</a>
+        <a ui-sref="productionDisplay">Product Display</a>
+
+    </nav>
+
+    <br/>
+    <br/>
+
+    <div ui-view="">
+    </div>
+

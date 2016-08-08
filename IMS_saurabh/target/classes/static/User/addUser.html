@@ -1,0 +1,42 @@
+<form class="form-group" ng-submit="submit()">
+
+    <h3>  Create New User !</h3>
+
+    <label for="userName"> Enter User Name :   </label><input required class="form-control" type="text" id="userName" name="userName" ng-model="userName"><br/>
+    <label for="password">  Enter password :   </label><input required class="form-control"type="password" id="password" name="password" ng-model="password" ><br/>
+    <label for="password2"> Retype password :   </label><input required class="form-control"type="password" id="password2" name="password2" ng-model="password2" ><br/>
+    <label for="email"> Enter Email :   </label><input type="text" required class="form-control"name="email"id="email" ng-model="email"><br/>
+    <label for="enabled"> Account active :  </label> <select id="enabled" class="form-control"ng-model="enabled"><option selected value=1 >Yes</option><option value=0>No</option><br></select>
+    <label for="userRole"> Select user role :  </label><select id="userRole"class="form-control" ng-model="userRole">
+    <option value="ROLE_ADMIN">Admin</option>
+    <option selected value="ROLE_USER">User</option>
+</select>
+    <input type="submit" class="btn btn-success"  value="Submit!" >
+    <br>
+    <div class="alert alert-warning" ng-show="mssgFlag">{{ mssg }}</div>
+</form>
+
+
+
+
+<!--@Id-->
+<!--@GeneratedValue(strategy = GenerationType.AUTO)-->
+<!--@Column(name="userid")-->
+<!--private Long userId;-->
+
+<!--@Column(name = "username")-->
+<!--private String userName;-->
+
+<!--@Column(name = "password")-->
+<!--private String password;-->
+
+<!--@Column(name = "email")-->
+<!--private String email;-->
+
+<!--@Column(name ="enabled")-->
+<!--private int enabled;-->
+
+<!--@OneToMany(cascade = CascadeType.ALL)-->
+<!--@JoinColumn(name = "userid")-->
+<!--List<UserRole> userRole;-->
+<!--public User(){-->

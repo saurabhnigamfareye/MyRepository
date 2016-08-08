@@ -1,0 +1,51 @@
+
+
+<div class="form-groupr">
+
+    <label for="productionProductName">Enter Item :</label><input type="text" id="productionProductName" class="form-control" ng-model="productionProductName">
+<br>
+
+<input type="submit"  class="btn btn-success" value="Submit" ng-click="productionHDisplay()">
+
+
+
+
+        <div ng-show="flag" ng-repeat="y in records  | filter : productionProductName">
+            <b> Name of Produced Item : </b>{{ y.productionProductName }}  <br>
+            <b> User who placed the order : </b>{{ y.userName }}  <br>
+            <b>Date of order: </b>{{ y.productionDate | date : "dd.MM.y"  }}  <br>
+            <b>Production Invoice Number : </b>{{ y.productionNumber }}  <br>
+            <b>Total Manufactured Items : </b>{{ y.totalManufacturedItem }}  <br>
+            <b>Raw Materials :  </b><br>
+
+
+            <table class="table table-bordered" border="1">
+                <tr>
+
+
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+
+
+                </tr>
+
+                <tr ng-repeat="x in y.rawMaterials">
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.productName }}</td>
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.quantity }}</td>
+
+                    <td ng-if="$even">{{ x.productName  }}</td>
+                    <td ng-if="$even" >{{ x.quantity }}</td>
+
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+
+    <!--<div ng-view="">-->
+
+<!--</div>-->
+</div>

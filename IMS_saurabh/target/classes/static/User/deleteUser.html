@@ -1,0 +1,13 @@
+
+<form class="form-group"  ng-submit="delete()">
+
+    <h3> Delete User</h3>
+
+    <label for="userId">
+        Enter User Id Of the user you want to delete  :   </label><input required class="form-control" type="text" id="userId" name="userId" ng-model="userId"><br/>
+
+    <input type="submit" class="btn btn-warning"  value="Delete!" >
+    <br>
+    <div class="alert alert-warning" ng-show="mssgFlag">{{ mssg }}</div>
+</form>
+

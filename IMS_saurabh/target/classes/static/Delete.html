@@ -1,0 +1,11 @@
+<!--delete-->
+
+<h3>Delete Inventory!</h3>
+<form ng-submit="delete()" class="form-group">
+
+
+    <label for="inventoryId"> Enter id : </label><input type="text" required class="form-control" id="inventoryId" name="inventoryId" ng-model="inventoryId"><br>
+<input type="submit" class="btn btn-danger" value="Delete" >
+    <br>
+    <div class="alert alert-info" ng-show="flag">{{ mssg }}</div>
+    </form>

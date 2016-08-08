@@ -1,0 +1,87 @@
+<form ng-submit="submit()">
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="vendor"> Enter Vendor Name :  </label>
+        <div class="col-sm-10">
+            <input type="text" required name="nameOfVendor" id="vendor" class="form-control" ng-model="nameOfVendor"><br/>
+        </div></div>
+    <div class="form-group">
+    <label class="control-label col-sm-2" for="tax"> Enter current tax :  </label>
+    <div class="col-sm-10">
+        <input type="number" required name="nameOfVendor" id="tax" class="form-control" ng-model="tax"><br/>
+    </div></div>
+
+<br/><br>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="inv"> Add Inventory :  </label>
+    <div class="col-sm-3"><select ng-model="productNameSelected"      id="inv" class="form-control"><option ng-repeat="x in productArray"  ng-model='productArray[$index]' >{{ x.productName }}</option></select></div>
+    <div class="col-sm-1"> <label for="q"> Qty : </label></div><div class="col-sm-2"><input  id="q" type="number" class="form-control" name="quantity" ng-model="quantity"></div>
+    <div class="col-sm-1"><label for="c"> Cost : </label></div><div class="col-sm-2"><input  type="number"  id="c" class="form-control" name="tax" ng-model="cost" ></div>
+    <div class="col-sm-1"><input type="button" class="btn" ng-click="add()" ng-model="table"value="ADD"></div>
+    </div>
+
+    <!--view1-->
+    <!--display-->
+
+    <div class="alert alert-warning" ng-show="mssgFlag">{{ ErrorMessage }}</div>
+    <br>
+    <h3 ng-show="showFlag">Purchase Order Inventory Table!</h3>
+
+    <br>
+    <table border="1"  class="table table-bordered" ng-show="showFlag" >
+        <tr>
+
+            <!--<th>Id</th>-->
+            <th>PRODUCT NAME</th>
+            <th>QUANTITY</th>
+            <th>COST PER UNIT</th>
+            <th>TOTAL COST </th>
+
+        </tr>
+        <!--<input ng-repeat="field in table.fields track by $index" type='text' ng-model='table.fields[$index]' placeholder='Field:'>-->
+
+        <!--<tr ng-repeat="field in table.fields track by $index" type='text' ng-model='table.fields[$index]' placeholder='Field:'>-->
+        <tr ng-repeat="y in table">
+
+            <!--<td ng-if="$odd" style="background-color:#f1f1f1">{{ y.inventoryId }}</td>-->
+            <td ng-if="$odd" style="background-color:#f1f1f1">{{ y.productName }}</td>
+            <td ng-if="$odd" style="background-color:#f1f1f1">{{ y.quantity  }}</td>
+            <td ng-if="$odd" style="background-color:#f1f1f1">{{ y.cost  | currency }}</td>
+            <td ng-if="$odd" style="background-color:#f1f1f1">{{ y.totalCost  | currency }}</td>
+
+
+            <!--<td ng-if="$even"> {{ y.inventoryId }}</td>-->
+            <td ng-if="$even">{{ y.productName  }}</td>
+            <td ng-if="$even">{{ y.quantity }}</td>
+            <td ng-if="$even">{{ y.cost  | currency }}</td>
+            <td ng-if="$even">{{ y.totalCost  | currency }}</td>
+
+
+        </tr>
+    </table>
+</div>
+
+<!-- COLUMN TWO NAMED VIEW -->
+<div class="divide">
+    <!--view2-->
+    <!--inventory itemms-->
+    <!--total cos-->
+    <!--netcost-->
+
+    <!--<div ui-view="columnTwo">-->
+
+    <!--</div>-->
+    <br><br>
+    <span ng-model="finalTotalCost"> <B>Total Cost:</B> {{ finalTotalCost | currency }}</span> <br>
+    <span ng-model="netCost"><B>Net Cost : </B>{{ netCost | currency }}</span><br><br>
+
+    <input type="submit" class="btn btn-success" value="Submit">&nbsp;
+    <input type="button" class="btn bg-danger" ng-click="reset()"value="Reset">
+</div>
+
+<br>
+<div class="alert alert-warning" ng-show="mssgFlag2">{{ ErrorMessage2 }}</div>
+
+</div>
+</form>

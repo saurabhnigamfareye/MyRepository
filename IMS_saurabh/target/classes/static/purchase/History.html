@@ -1,0 +1,56 @@
+
+<div class="form-groupr">
+
+    <label for="productName">Enter Product Name :</label><input type="text" id="productName" class="form-control" ng-model="productName">
+    <br>
+
+    <input type="submit"  class="btn btn-success" value="Submit" ng-click="productionHDisplay()">
+
+
+<div ng-show="flag">
+
+    <h3>Purchase History for  {{productName}}</h3>
+    <div   ng-repeat="y in records  | filter : inv">
+
+        Name of Vendor: {{ y.nameOfVendor }}  <br>
+        Date of order: {{ y.pODate | date : "dd.MM.y"  }}  <br>
+        User who placed the order : {{ y.userName }}  <br>
+        Purchase Order Number : {{ y.pONumber }}  <br>
+        Tax: {{ y.tax }}  <br>
+        Total Cost: {{ y.totalCost | currency}}  <br>
+        Net Cost: {{ y.netCost| currency }}  <br>
+        Inventory Items:  <br><br>
+
+
+        <table class="table table-bordered" border="1">
+            <tr>
+
+
+                <th>Product Name</th>
+                <th>Cost per unit</th>
+                <th>Quantity</th>
+                <th>Total Cost</th>
+
+            </tr>
+
+            <tr ng-repeat="x in y.inventoryItems">
+
+                <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.productName }}</td>
+                <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.cost | currency }}</td>
+                <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.quantity }}</td>
+                <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.cost * x.quantity | currency }}</td>
+
+
+
+
+                <td ng-if="$even">{{ x.productName  }}</td>
+                <td ng-if="$even">{{ x.cost | currency }}</td>
+                <td ng-if="$even" >{{ x.quantity }}</td>
+                <td ng-if="$even" >{{ x.cost * x.quantity | currency }}</td>
+
+            </tr>
+        </table>
+    </div>
+
+</div>
+</div>

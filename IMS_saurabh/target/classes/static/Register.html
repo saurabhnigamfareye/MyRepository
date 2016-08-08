@@ -1,0 +1,18 @@
+
+<h3>Register Inventory!</h3>
+
+<form class="form-group "  ng-submit="submit()">
+        <label for="productName"> Enter product name : </label><input required type="text" id="productName" class="form-control" name="productName" ng-model="productName">
+    <br>
+    <label for="cost"> Enter cost : </label><input required type="number" id="cost" class="form-control" name="cost" ng-model="cost"><br>
+    <label for="unitOfMeasurement"> Enter Unit of measurement :</label> <input required id="unitOfMeasurement" type="text" class="form-control" name="unitOfMeasurement" ng-model="unitOfMeasurement"><br>
+    <label for="openingBalance"> Enter openingBalance :</label> <input required type="number" id="openingBalance" name="openingBalance" class="form-control" ng-model="openingBalance"><br>
+    <label for="dimension"> Enter dimension : </label><input required type="number" class="form-control" id="dimension" name="dimension" ng-model="dimension"><br>
+
+    <input type="submit" class="btn btn-success"  value="Add Product to inventory!" >
+    <br>
+    <div class="alert alert-warning" ng-show="mssgFlag">{{ mssg }}</div>
+
+</form>
+
+

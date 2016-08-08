@@ -1,0 +1,41 @@
+<h3>List of Inventories!</h3>
+
+<div class="form-group">
+    <label for="productName"> Enter product name : </label><input class="form-control" type="text" id="productName" name="productName" ng-model="productName">
+<br>
+
+<table class="table table-bordered" ng-show="flag" border="1">
+    <tr>
+
+        <th>Id</th>
+        <th>Product Name</th>
+        <th>Cost</th>
+        <th>Units Of Measurement</th>
+        <th>Opening Balance</th>
+        <th>Current Balance</th>
+        <th>Dimensions</th>
+    </tr>
+
+    <tr ng-repeat="x in records | filter : productName">
+       <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.inventoryId }}</td>
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.productName }}</td>
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.cost | currency }}</td>
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.unitOfMeasurement }}</td>
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.openingBalance }}</td>
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.currentBalance }}</td>
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{  x.dimension }}</td>
+
+
+
+        <td ng-if="$even"> {{ x.inventoryId }}</td>
+        <td ng-if="$even">{{ x.productName  }}</td>
+        <td ng-if="$even">{{ x.cost | currency }}</td>
+        <td ng-if="$even">{{ x.unitOfMeasurement }}</td>
+        <td ng-if="$even">{{ x.openingBalance }}</td>
+        <td ng-if="$even">{{ x.currentBalance }}</td>
+        <td ng-if="$even">{{ x.dimension }}</td>
+
+    </tr>
+</table>
+</div>
+
